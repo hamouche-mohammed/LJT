@@ -37,7 +37,7 @@
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/clients'); ?>">client</a></li>
+                <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>

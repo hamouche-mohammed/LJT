@@ -18,20 +18,23 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('authentification/logout'); ?>">déconnecter</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('facture/factureData'); ?>">facture</a></li>
+            </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('commande/commandeData'); ?>">commandes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/clients'); ?>">client</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/articles'); ?>">articles</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('stock/stockData'); ?>">stock</a></li>
@@ -57,12 +60,12 @@
            ?>  
            <div class="form-group">  
                 <label>numéro commande</label>  
-                <input type="text" name="numero_commande" value="<?php echo $row->numero_commande; ?>" class="form-control" />  
+                <input type="text" disabled="disabled"name="numero_commande" value="<?php echo $row->numero_commande; ?>" class="form-control" />  
                 <span class="text-danger"><?php echo form_error("numero_commande"); ?></span>  
            </div>  
            <div class="form-group">  
                 <label>date</label>  
-                <input type="text" name="date_commande" value="<?php echo $row->date_commande; ?>" class="form-control" />  
+                <input type="date" name="date_commande" value="<?php echo $row->date_commande; ?>" class="form-control" />  
                 <span class="text-danger"><?php echo form_error("date_commande"); ?></span>  
            </div>  
            <div class="form-group">  

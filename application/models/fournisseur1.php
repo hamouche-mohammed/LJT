@@ -46,6 +46,44 @@ class fournisseur1 extends CI_Model {
         
         }
 
+        
+
+        ////////////////////////////////////////
+
+
+
+
+         public function getid(){
+
+        $str = "FRN000";
+
+
+         $query = $this->db->get('fournisseur');
+
+         if($query->result()){
+
+         foreach ($query->result() as $row) {
+
+           $id_four = $row->ref_fournisseur;
+           $last_four = explode("000", $id_four);
+          /* print_r (explode("r",$id_four));*/
+          /* echo  $last_four[1];*/
+           $last_four[1]++;
+
+           $id = $str.$last_four[1];
+         
+                        }
+
+       }else{
+            
+             $id = "FRN0001";
+         }
+
+       return $id;
+     }
+
+
+
 
 }
 ?>

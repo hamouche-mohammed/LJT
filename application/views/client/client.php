@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Page d'inscription</title>
 
@@ -41,7 +40,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
-              <ul class="nav navbar-nav navbar-right">
+             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
@@ -59,30 +58,36 @@
         </div>
     </nav>
 
-    <h1 align="center" style="color:red">Stock</h1>
-
-    <br/><h3 align="center" style="font-weight: bold">Bonjours  <?php echo $_SESSION['nom'] ;?></h3>
+    <h1 align="center" style="color:red">Les clients</h1>
 
 
-    <div style="width: 800px;position: absolute; left: 20%;top: 40%">
+
+
+ <div style="width: 800px;position: absolute; left: 11%;top: 40%">
+
+
       
     <table border="2" class="table table-striped table-hover">
 
-      <tr> <th>ID</th><th>numéro étage</th> <th>numéro article</th><th>quantité stock</th><!--<th>Supprimer</th><th>modifier</th></tr> -->
+      <tr> <th>référence</th> <th>nom</th><th>prenom</th><th>email</th><th>téléphone</th><th>adresse</th><th>ville</th><th>status</th><th>genre</th><th>modifier</th></tr>
 
 
-      <?php  
-                foreach( $stock as $row)  
+          <?php  
+                foreach( $clients as $row)  
                 {  
            ?>  
                 <tr>  
-                     <td><?php echo $row->id; ?></td>
-                     <td><?php echo $row->num_étage; ?></td>  
-                     <td><?php echo $row->num_article; ?></td>  
-                     <td><?php echo $row->quantité_stock; ?></td> 
-                    <!-- <td><a href="#" class="stockdelete" id="<?php echo $row->id; ?>">Supprimer</a></td>  
-                     <td><a href="<?php echo base_url(); ?>index.php/stock/stockupdate/<?php echo $row->id; ?>">modifier</a></td> --> 
-
+                     <td><?php echo $row->ref_client; ?></td>  
+                     <td><?php echo $row->nom; ?></td>
+                     <td><?php echo $row->prenom; ?></td>
+                      <td><?php echo $row->mail; ?></td> 
+                      <td><?php echo $row->telephone; ?></td> 
+                     <td><?php echo $row->adresse; ?></td>  
+                     <td><?php echo $row->nom_ville; ?></td>
+                     <td><?php echo $row->status; ?></td>
+                     <td><?php echo $row->gender; ?></td>  
+                    
+                     <td><a href="<?php echo base_url(); ?>index.php/Client/clientupdate/<?php echo $row->ref_client; ?>">modifier</a></td>  
                      
                 </tr>  
 
@@ -94,7 +99,7 @@
 
 
      </table>
-     <form method="post" action="">
+    <form method="post" action="">
 
       <div class="form-group">  
                 <input type="submit" name="insert_nouveau" value="inserer nouveaux données" class="btn btn-primary" />  
@@ -103,15 +108,15 @@
      </form> 
 
 
-    </div>
 
-     <script>  
+    </div>
+ <script>  
       $(document).ready(function(){  
-           $('.stockdelete').click(function(){  
+           $('.clientdelete').click(function(){  
                 var id = $(this).attr("id");  
                 if(confirm("Voulez-vous vraiment supprimer ce champ ?"))  
                 {  
-                     window.location="<?php echo base_url(); ?>index.php/stock/stockdelete/"+id;  
+                     window.location="<?php echo base_url(); ?>index.php/client/clientdelete/"+id;  
                 }  
                 else  
                 {  
@@ -126,5 +131,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url ();?>assets/css/bootstrap.min.js"></script>
+    <script src=”assets/js/index.js”></script>
   </body>
 </html>

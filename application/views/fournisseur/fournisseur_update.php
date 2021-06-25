@@ -18,6 +18,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('authentification/logout'); ?>">déconnecter</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('facture/factureData'); ?>">facture</a></li>
+            </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('commande/commandeData'); ?>">commandes</a></li>
             </ul>
@@ -25,13 +28,13 @@
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/clients'); ?>">client</a></li>
+                <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/articles'); ?>">articles</a></li>
+                <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('stock/stockData'); ?>">stock</a></li>
@@ -59,7 +62,7 @@
 
            <div class="form-group">  
                 <label>référence</label>  
-                <input type="text" name="ref_fournisseur" value="<?php echo $row->ref_fournisseur; ?>"class="form-control" />  
+                <input type="text" disabled="disabled" name="ref_fournisseur" value="<?php echo $row->ref_fournisseur; ?>"class="form-control" />  
                 <span class="text-danger"><?php echo form_error("ref_fournisseur"); ?></span>  
            </div>  
            <div class="form-group">  
@@ -71,6 +74,11 @@
                 <label>adresse</label>  
                 <input type="text" name="adresse_fournisseur" value="<?php echo $row->adresse_fournisseur; ?>" class="form-control" />  
                 <span class="text-danger"><?php echo form_error("adresse_fournisseur"); ?></span>  
+           </div>
+           <div class="form-group">  
+                <label>email</label>  
+                <input type="email" name="email" value="<?php echo $row->email; ?>" class="form-control" />  
+                <span class="text-danger"><?php echo form_error("email"); ?></span>  
            </div>
            <div class="form-group">  
                 <label>téléphone</label>  

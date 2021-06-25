@@ -1,3 +1,32 @@
+<?php
+
+         $str = "CMD000";
+
+
+         $query = $this->db->get('commande');
+
+         if($query->result()){
+
+         foreach ($query->result() as $row) {
+
+           $id_cmd = $row->numero_commande ;
+           $last_cmd = explode("000", $id_cmd);
+          /* print_r (explode("r",$id_four));*/
+          /* echo  $last_four[1];*/
+           $last_cmd[1]++;
+
+           $id = $str.$last_cmd[1];
+         
+                        }
+
+       }else{
+            
+             $id = "CMD0001";
+         }
+
+
+
+?>
 <html>  
  <head>  
    <title>Insert data stock</title>  
@@ -18,20 +47,23 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('authentification/logout'); ?>">déconnecter</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('facture/factureData'); ?>">facture</a></li>
+            </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('commande/commandeData'); ?>">commandes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/clients'); ?>">client</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/articles'); ?>">articles</a></li>
+                <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('stock/stockData'); ?>">stock</a></li>
@@ -50,7 +82,7 @@
       <form method="post" action="<?php echo base_url()?>index.php/commande/commandeinsert">  
            <div class="form-group">  
                 <label>numéro commande </label>  
-                <input type="number" name="numero_commande" class="form-control" />  
+                <input type="number" disabled="disabled" name="numero_commande" class="form-control" placeholder="<?php  echo $id ?>" />  
                 <span class="text-danger"><?php echo form_error("numero_commande"); ?></span>  
            </div>  
            <div class="form-group">  

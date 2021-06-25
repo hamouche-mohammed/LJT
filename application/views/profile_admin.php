@@ -39,6 +39,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('authentification/logout'); ?>">déconnecter</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('facture/factureData'); ?>">facture</a></li>
+            </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('commande/commandeData'); ?>">commandes</a></li>
             </ul>
@@ -46,7 +49,7 @@
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/clients'); ?>">client</a></li>
+                <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>

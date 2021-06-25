@@ -31,20 +31,23 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('authentification/logout'); ?>">déconnecter</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('facture/factureData'); ?>">facture</a></li>
+            </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('commande/commandeData'); ?>">commandes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/clients'); ?>">client</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
-             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo site_url('views/articles'); ?>">articles</a></li>
+             < <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('stock/stockData'); ?>">stock</a></li>
@@ -64,7 +67,7 @@
       
     <table border="2" class="table table-striped table-hover">
 
-      <tr> <th> numéro commande </th> <th> date </th><th> total </th><th>Supprimer</th><th>modifier</th></tr>
+      <tr> <th> numéro commande </th> <th> date </th><th> total </th><th>modifier</th></tr>
 
 
       <?php  
@@ -75,7 +78,7 @@
                      <td><?php echo $row->numero_commande; ?></td>  
                      <td><?php echo $row->date_commande; ?></td>  
                      <td><?php echo $row->total_commande." DH"; ?></td>
-                     <td><a href="#" class="commandedelete" id="<?php echo $row->numero_commande; ?>">Supprimer</a></td>  
+                     
                      <td><a href="<?php echo base_url(); ?>index.php/commande/commandeupdate/<?php echo $row->numero_commande; ?>">modifier</a></td>  
   
                      

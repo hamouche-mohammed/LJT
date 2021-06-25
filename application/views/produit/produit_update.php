@@ -33,7 +33,7 @@
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
-              <ul class="nav navbar-nav navbar-right">
+             < <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
@@ -49,8 +49,8 @@
 
  <div style="width: 500px;position: absolute; left: 33%;top: 10%"> 
       <br /><br /><br />  
-      <h3 align="center">modifier le Stock </h3><br />  
-      <form method="post" action="<?php echo base_url()?>index.php/stock/stockinsert">  
+      <h3 align="center">modifier produit </h3><br />  
+      <form method="post" action="<?php echo base_url()?>index.php/produit/produitinsert">  
            
            <?php  
            if(isset($user_data))  
@@ -58,25 +58,57 @@
                 foreach($user_data->result() as $row)  
                 {  
            ?>  
-           <div class="form-group">  
-                <label>numéro étage</label>  
-                <input type="text" name="num_étage" value="<?php echo $row->num_étage; ?>" class="form-control" />  
-                <span class="text-danger"><?php echo form_error("num_étage"); ?></span>  
+           
+        <div class="form-group">  
+                <label>référence </label>  
+                <input type="text" disabled="disabled" name="reference" value="<?php echo $row->reference; ?>" class="form-control"  />  
+                <span class="text-danger"><?php echo form_error("reference"); ?></span>  
            </div>  
            <div class="form-group">  
-                <label>numéro article</label>  
-                <input type="text" name="num_article" value="<?php echo $row->num_article; ?>" class="form-control" />  
-                <span class="text-danger"><?php echo form_error("num_article"); ?></span>  
+                <label>nom</label>  
+                <input type="text" name="nom_produit" value="<?php echo $row->nom_produit; ?>" class="form-control" />  
+                <span class="text-danger"><?php echo form_error("nom_produit"); ?></span>  
            </div>  
            <div class="form-group">  
-                <label>quantité stock</label>  
-                <input type="number" name="quantité_stock" value="<?php echo $row->quantité_stock; ?>" class="form-control" />  
-                <span class="text-danger"><?php echo form_error("quantité_stock"); ?></span>  
+                <label>prix</label>  
+                <input type="number"  name="prix"  value="<?php echo $row->prix; ?>" class="form-control" />  
+                <span class="text-danger"><?php echo form_error("prix"); ?></span>  
            </div> 
+            <div class="form-group">  
+                <label>quantité</label>  
+                <input type="number"  name="quantite" value="<?php echo $row->quantite; ?>" class="form-control" />  
+                <span class="text-danger"><?php echo form_error("quantite"); ?></span>  
+           </div> 
+            <div class="form-group">  
+                <label>date de creation</label>  
+                <input type="date"  name="created_date"  value="<?php echo $row->created_date; ?>" class="form-control" />  
+                <span class="text-danger"><?php echo form_error("created_date"); ?></span>  
+           </div> 
+             <div class="form-group">
+        
+        <label for="category_id">catégorie</label><br />
+        <select class="form-control"  name="category_id" type="text">
+        <?php foreach($categories as $fr) : ?>
+            <option  value="<?php  echo $fr->id;?>"><?php echo $fr->name;?></option>
+            <?php endforeach;?>
+        </select>
+        </div>
+
+        <div class="form-group">
+        
+        <label for="ref_fournisseur">fournisseur</label><br />
+        <select class="form-control"  name="ref_fournisseur" type="text">
+        <?php foreach($fournisseur as $fr) : ?>
+            <option  value="<?php  echo $fr->ref_fournisseur;?>"><?php echo $fr->nom_fournisseur;?></option>
+            <?php endforeach;?>
+        </select>
+        </div>
+            
+           
            <div class="form-group">  
-                <input type="hidden" name="hidden_id" value="<?php echo $row->id; ?>" />  
-                <input type="submit" name="update" value="modifier" class="btn btn-primary" />  
+                <input type="submit" name="insert" value="Inserer" class="btn btn-primary" />  
            </div>       
+                  
            <?php       
                 }  
            }  

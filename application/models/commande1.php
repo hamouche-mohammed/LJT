@@ -51,6 +51,36 @@ class commande1 extends CI_Model {
         
         }
 
+        public function getid(){
+
+      $str = "CMD000";
+
+
+         $query = $this->db->get('commande');
+
+         if($query->result()){
+
+         foreach ($query->result() as $row) {
+
+           $id_cmd = $row->numero_commande ;
+           $last_cmd = explode("000", $id_cmd);
+          /* print_r (explode("r",$id_four));*/
+          /* echo  $last_four[1];*/
+           $last_cmd[1]++;
+
+           $id = $str.$last_cmd[1];
+         
+                        }
+
+       }else{
+            
+             $id = "CMD0001";
+         }
+
+
+       return $id;
+     }
+
 
 
 

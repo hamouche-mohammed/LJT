@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Page d'inscription</title>
 
@@ -41,13 +40,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('views/ventes'); ?>">ventes</a></li>
             </ul>
-              <ul class="nav navbar-nav navbar-right">
+             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('client/clientData'); ?>">client</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
-              <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
@@ -59,30 +58,46 @@
         </div>
     </nav>
 
-    <h1 align="center" style="color:red">Stock</h1>
-
-    <br/><h3 align="center" style="font-weight: bold">Bonjours  <?php echo $_SESSION['nom'] ;?></h3>
+    <h1 align="center" style="color:red">Les Produits</h1>
 
 
-    <div style="width: 800px;position: absolute; left: 20%;top: 40%">
+
+  <div>
+    
+
+
+    
+  </div>
+
+
+
+
+ <div style="width: auto;position: absolute; left: 19%;top: 40%">
+
+
       
     <table border="2" class="table table-striped table-hover">
 
-      <tr> <th>ID</th><th>numéro étage</th> <th>numéro article</th><th>quantité stock</th><!--<th>Supprimer</th><th>modifier</th></tr> -->
+      <tr> <th>référence</th> <th>nom</th><th>prix</th><th>quantite</th><th>date de creation</th><th>catégorie</th><th>ref_fournisseur</th><th>modifier</th></tr>
 
 
-      <?php  
-                foreach( $stock as $row)  
+          <?php  
+                foreach( $produits as $row)  
                 {  
            ?>  
                 <tr>  
-                     <td><?php echo $row->id; ?></td>
-                     <td><?php echo $row->num_étage; ?></td>  
-                     <td><?php echo $row->num_article; ?></td>  
-                     <td><?php echo $row->quantité_stock; ?></td> 
-                    <!-- <td><a href="#" class="stockdelete" id="<?php echo $row->id; ?>">Supprimer</a></td>  
-                     <td><a href="<?php echo base_url(); ?>index.php/stock/stockupdate/<?php echo $row->id; ?>">modifier</a></td> --> 
+                     <td><?php echo $row->reference; ?></td>  
+                     <td><?php echo $row->nom_produit; ?></td>
+                     <td><?php echo $row->prix; ?></td>
+                      <td><?php echo $row->quantite; ?></td> 
+                      <td><?php echo $row->created_date; ?></td> 
+                     <td><?php echo $row->category_id; ?></td>  
+                     <td><?php echo $row->ref_fournisseur; ?></td>
 
+                    <!-- <td><a href="#" class="delete_data" id="<?php echo $row->id; ?>">Delete</a></td>  -->
+                       
+                     
+                     <td><a href="<?php echo base_url(); ?>index.php/produit/produitupdate/<?php echo $row->reference; ?>">modifier</a></td>  
                      
                 </tr>  
 
@@ -94,7 +109,7 @@
 
 
      </table>
-     <form method="post" action="">
+    <form method="post" action="">
 
       <div class="form-group">  
                 <input type="submit" name="insert_nouveau" value="inserer nouveaux données" class="btn btn-primary" />  
@@ -103,15 +118,15 @@
      </form> 
 
 
-    </div>
 
-     <script>  
+    </div>
+ <script>  
       $(document).ready(function(){  
-           $('.stockdelete').click(function(){  
+           $('.produitdelete').click(function(){  
                 var id = $(this).attr("id");  
                 if(confirm("Voulez-vous vraiment supprimer ce champ ?"))  
                 {  
-                     window.location="<?php echo base_url(); ?>index.php/stock/stockdelete/"+id;  
+                     window.location="<?php echo base_url(); ?>index.php/produit/produitdelete/"+id;  
                 }  
                 else  
                 {  
@@ -126,5 +141,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url ();?>assets/css/bootstrap.min.js"></script>
+    <script src=”assets/js/index.js”></script>
   </body>
 </html>

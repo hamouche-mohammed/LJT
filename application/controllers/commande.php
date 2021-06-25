@@ -32,7 +32,7 @@ public function commandeData(){
 
  
            $this->load->library('form_validation');  
-           $this->form_validation->set_rules("numero_commande", "numero_commande", 'required');  
+            
            $this->form_validation->set_rules("date_commande", "date_commande", 'required'); 
            $this->form_validation->set_rules("total_commande", "total_commande", 'required'); 
 
@@ -42,7 +42,7 @@ public function commandeData(){
                 //true  
                 $this->load->model("commande1");  
                 $data = array(  
-                     "numero_commande"     =>$this->input->post("numero_commande"),  
+                     "numero_commande"     =>$this->commande1->getid(),  
                      "date_commande"          =>$this->input->post("date_commande"),
                      "total_commande"          =>$this->input->post("total_commande")  
                 );   

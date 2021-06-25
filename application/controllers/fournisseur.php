@@ -26,17 +26,35 @@ class Fournisseur extends CI_CONTROLLER{
 	/////////////////////////////////////////
 
 
+   
+public function getidx(){
+
+   $this->load->model("fournisseur1"); 
+   $x = $this->fournisseur1->getid();
+}
+
+
+
+
+///////////////////////////////////////
 
 
 
 	public function fournisseurinsert(){
 
+
+       
+
+          
+         
+
  
            $this->load->library('form_validation');  
-           $this->form_validation->set_rules("ref_fournisseur", "ref_fournisseur", 'required');  
+             
            $this->form_validation->set_rules("nom_fournisseur", "nom_fournisseur", 'required'); 
+           $this->form_validation->set_rules("email", "email", 'required'); 
            $this->form_validation->set_rules("adresse_fournisseur", "adresse_fournisseur", 'required'); 
-            $this->form_validation->set_rules("tel_fournisseur", "adresse_fournisseur", 'required'); 
+            $this->form_validation->set_rules("tel_fournisseur", "tel_fournisseur", 'required'); 
 
 
            if($this->form_validation->run())  
@@ -44,10 +62,11 @@ class Fournisseur extends CI_CONTROLLER{
                 //true  
                 $this->load->model("fournisseur1");  
                 $data = array(  
-                     "ref_fournisseur"     =>$this->input->post("ref_fournisseur"),  
-                     "nom_fournisseur"          =>$this->input->post("nom_fournisseur"),
-                     "adresse_fournisseur"          =>$this->input->post("adresse_fournisseur"),
-                     "tel_fournisseur"          =>$this->input->post("tel_fournisseur")  
+                     "ref_fournisseur"     =>$this->fournisseur1->getid(),  
+                     "nom_fournisseur"     =>$this->input->post("nom_fournisseur"),
+                     "email"     =>$this->input->post("email"),
+                     "adresse_fournisseur" =>$this->input->post("adresse_fournisseur"),
+                     "tel_fournisseur"     =>$this->input->post("tel_fournisseur")  
                 );   
 
                 if($this->input->post("update"))  
