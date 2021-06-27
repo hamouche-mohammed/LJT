@@ -85,7 +85,7 @@ i { margin: 0 7px; }
 .wrapper {
   display: flex;
   width: 100%;
-  height:100%;
+  height:auto;
   align-items: stretch;
 }.wrapper {
   display: flex;
@@ -264,8 +264,8 @@ nav {
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" >
-   <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" style="background-color: black">
+   <div class="container-fluid" >
     <button id="sidebarCollapse" class="btn navbar-btn" >
         <i class="fas fa-lg fa-bars"></i>
     </button>
@@ -287,9 +287,9 @@ nav {
       </ul>
     </div>
 </nav>
-<div class="wrapper fixed-left" style="position: fixed;"">
-    <nav id="sidebar" >
-      <div class="sidebar-header">
+<div class="wrapper fixed-left">
+    <nav id="sidebar" style="background-color: #708090">
+      <div class="sidebar-header" style="background-color: #708090">
       <h4><i class="fas fa-user"></i>Admin</h4>
       </div>
 
@@ -331,9 +331,9 @@ nav {
        
       </ul>
     </nav>
-  </div>
+  
 
-<div class="container" style="position: relative;left: 14%">
+<div class="container">
 
 
 
@@ -354,12 +354,13 @@ nav {
  
    
 
-<div class="table" style="position: relative;margin-top: 30px;margin-left: 80px;">
+<div class="table" style="position: relative;margin-top: 30px;"><center>
+
 
  
     <table border="2" class="table" style="width: auto;align-self: center;">
 
-      <tr style="background-color:#3386FF"> <th> numéro commande </th> <th> date </th><th> total </th><th>modifier</th></tr>
+      <tr style="background-color:#708090;color: white"> <th> numéro commande </th> <th> date </th><th> total </th><th>modifier</th></tr>
 
 
       <?php  
@@ -385,11 +386,11 @@ nav {
 
 
 
-     </table>
+     </table></center>
 
          <form method="post" action="">
           
-           <input   style="width:200px;margin-right: 40px; " type="submit" name="insert_nouveau" value="Nouveau Commande" class="btn btn-primary" /> 
+           <input   style="position: relative;width:200px;left:430px; " type="submit" name="insert_nouveau" value="Nouveau Commande" class="btn btn-secondary" /> 
 
             </form>
     

@@ -246,7 +246,7 @@ class facture extends CI_CONTROLLER{
 
 
               $this->load->library('form_validation');  
-             
+              
      
             $this->form_validation->set_rules("date_facture","date_facture", 'required'); 
             $this->form_validation->set_rules("ref_client", "ref_client", 'required'); 
@@ -260,6 +260,15 @@ class facture extends CI_CONTROLLER{
             $this->form_validation->set_rules("qté_produit", "qté_produit", 'required');
             $this->form_validation->set_rules("ref_produit", "ref_produit", 'required');
             $this->form_validation->set_rules("montant_facture", "montant_facture", 'required'); 
+
+
+              $query = $this->db->get('facture');
+
+                 foreach( $query->result() as $row)  
+                   {
+ 
+                    $ref=$row->ref_facture;
+                    }
 
 
 
@@ -299,6 +308,7 @@ class facture extends CI_CONTROLLER{
           $this->load->model("facture1");
 
            $data["facturex"] = $this->facture1->get_factureByRef();
+           $data["ligne_facture"] = $this->facture1->get_detaille($ref);
 
 
            $this->load->view("facture/facture_edit",$data);  
@@ -328,13 +338,7 @@ class facture extends CI_CONTROLLER{
                 ); 
                         
 
-                $query = $this->db->get('facture');
-
-                 foreach( $query->result() as $row)  
-                   {
- 
-                    $ref=$row->ref_facture;
-                    }
+              
 
                  
  
@@ -354,7 +358,8 @@ class facture extends CI_CONTROLLER{
 
                     $this->facture1->update_facture($data, $ref); 
 
-                    $this->facture1->insert_ligne_facture($data1); 
+                    $this->facture1->insert_ligne_facture($data1);
+
 
                        
                      
@@ -370,7 +375,9 @@ class facture extends CI_CONTROLLER{
 
                 $this->facture1->update_facture($data, $ref); 
  
-                $this->facture1->insert_ligne_facture($data1); 
+                $this->facture1->insert_ligne_facture($data1);
+
+                $data["ligne_facture"] = $this->facture1->get_detaille($ref);  
 
 
         

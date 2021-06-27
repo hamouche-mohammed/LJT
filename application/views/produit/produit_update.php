@@ -85,7 +85,7 @@ i { margin: 0 7px; }
 .wrapper {
   display: flex;
   width: 100%;
-  height:100%;
+  height:auto;
   align-items: stretch;
 }.wrapper {
   display: flex;
@@ -261,7 +261,7 @@ body, html {
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top"  style="background-color: black">
    <div class="container-fluid">
     <button id="sidebarCollapse" class="btn navbar-btn" >
         <i class="fas fa-lg fa-bars"></i>
@@ -284,9 +284,9 @@ body, html {
       </ul>
     </div>
 </nav>
-<div class="wrapper fixed-left" style="position: fixed;">
-    <nav id="sidebar">
-      <div class="sidebar-header">
+<div class="wrapper fixed-left" >
+    <nav id="sidebar" style="background-color: #708090">
+      <div class="sidebar-header" style="background-color: #708090">
       <h4><i class="fas fa-user"></i>Admin</h4>
       </div>
 
@@ -325,7 +325,7 @@ body, html {
        
       </ul>
     </nav>
-  </div>
+  
 
 <div class="container">
 
@@ -340,13 +340,12 @@ body, html {
  <hr>
  <div class="row">
         <div class="text-right">
-          <div class="col-lg-12"><center><h1>Modifier client</h1></center></div></div>
+          <div class="col-lg-12"><center><h1>Modifier produit</h1></center></div></div>
           
 </div>
 
 
-      <div style="width: 500px;position: relative;top: 5%;margin-left: 220px;"> 
-
+      <div style="width: 500px;position: relative;top: 5%;margin-left: 300px;"> 
 
          <form method="post" action="<?php echo base_url()?>index.php/produit/produitinsert">  
            
@@ -405,7 +404,7 @@ body, html {
            
            <div class="form-group">  
                  <input type="hidden" name="hidden_id" value="<?php echo $row->reference; ?>" />
-                <input type="submit" name="update" value="modifier" class="btn btn-primary" />  
+                <input type="submit" name="update" value="modifier" class="btn btn-secondary" />  
            </div>       
                   
            <?php       

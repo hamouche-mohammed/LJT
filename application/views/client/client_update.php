@@ -85,7 +85,7 @@ i { margin: 0 7px; }
 .wrapper {
   display: flex;
   width: 100%;
-  height:100%;
+  height:auto;
   align-items: stretch;
 }.wrapper {
   display: flex;
@@ -261,7 +261,7 @@ body, html {
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" style="background-color: black">
    <div class="container-fluid">
     <button id="sidebarCollapse" class="btn navbar-btn" >
         <i class="fas fa-lg fa-bars"></i>
@@ -282,11 +282,11 @@ body, html {
         </li>
         
       </ul>
-    </div>
+    
 </nav>
-<div class="wrapper fixed-left" style="position: fixed;">
-    <nav id="sidebar">
-      <div class="sidebar-header">
+<div class="wrapper fixed-left" ">
+    <nav id="sidebar" style="background-color: #708090">
+      <div class="sidebar-header" style="background-color: #708090">
       <h4><i class="fas fa-user"></i>Admin</h4>
       </div>
 
@@ -325,7 +325,7 @@ body, html {
        
       </ul>
     </nav>
-  </div>
+ 
 
 <div class="container">
 
@@ -345,7 +345,7 @@ body, html {
 </div>
 
 
-      <div style="width: 500px;position: relative;top: 5%;margin-left: 220px;"> 
+      <div style="width: 500px;position: relative;top: 5%;margin-left: 300px;"> 
        
     
      
@@ -397,7 +397,7 @@ body, html {
 
            <div class="form-group"> 
                 <input type="hidden" name="hidden_id" value="<?php echo $row->ref_client; ?>" />   
-                <input type="submit" name="update" value="modifier" class="btn btn-primary" />  
+                <input type="submit" name="update" value="modifier" class="btn btn-secondary" />  
            </div>       
                   
            <?php       

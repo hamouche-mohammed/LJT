@@ -17,10 +17,12 @@
     <style type="text/css">
  body{
          background-repeat: no-repeat;
-         height: 100%;
+         height: auto;
          background-position: center;
          background-size: cover;
-         background-size: fixed
+         background-size: fixed;
+         margin-bottom: 0;
+
        
     
 
@@ -85,7 +87,7 @@ i { margin: 0 7px; }
 .wrapper {
   display: flex;
   width: 100%;
-  height:100%;
+  height:auto;
   align-items: stretch;
 }.wrapper {
   display: flex;
@@ -175,7 +177,7 @@ a[data-toggle="collapse"] {
   }
 }
 body, html {
-  height:100%;
+  height:auto;
 }
 
 /*
@@ -205,7 +207,7 @@ body, html {
     position: absolute;
     top: 0;
     width: 33%;
-    height: 100%;
+    height: auto;
   }
 }
 
@@ -236,7 +238,7 @@ body, html {
 .card-body .rotate {
     z-index: 8;
     float: right;
-    height: 100%;
+    height: auto;
 }
 
 .card-body .rotate i {
@@ -264,8 +266,8 @@ nav {
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" >
-   <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" style="background-color: black" >
+   <div class="container-fluid" >
     <button id="sidebarCollapse" class="btn navbar-btn" >
         <i class="fas fa-lg fa-bars"></i>
     </button>
@@ -287,9 +289,9 @@ nav {
       </ul>
     </div>
 </nav>
-<div class="wrapper fixed-left" style="position: fixed;ba">
-    <nav id="sidebar" style="">
-      <div class="sidebar-header">
+<div class="wrapper fixed-left" >
+    <nav id="sidebar" style="background-color: #708090">
+      <div class="sidebar-header" style="background-color: #708090">
       <h4><i class="fas fa-user"></i>Admin</h4>
       </div>
 
@@ -331,9 +333,9 @@ nav {
        
       </ul>
     </nav>
-  </div>
 
-<div class="container" style="position: relative;left: 14%">
+
+<div class="container">
 
 
 
@@ -355,13 +357,13 @@ nav {
    
 
 
-<div class="table" style="position: relative;top: 5%;margin-left: 30px;">
+<div class="table" style="position: relative;top: 5%"><center>
 
 
  
-    <table border="2" class="table" style="width: auto;align-self: center;">
+    <table border="2" class="table" style="width: auto;">
 
-      <tr style="background-color:#3386FF"> <th>référence</th> <th>nom</th><th>prenom</th><th>email</th><th>téléphone</th><th>adresse</th><th>ville</th><th>modifier</th></tr>
+      <tr style="background-color:#708090;color: white"> <th>référence</th> <th>nom</th><th>prenom</th><th>email</th><th>téléphone</th><th>adresse</th><th>ville</th><th>modifier</th></tr>
 
 
           <?php  
@@ -373,7 +375,7 @@ nav {
                      <td><?php echo $row->nom; ?></td>
                      <td><?php echo $row->prenom; ?></td>
                       <td><?php echo $row->mail; ?></td> 
-                      <td><?php echo $row->telephone; ?></td> 
+                       <td><?php echo $row->telephone; ?></td> 
                      <td><?php echo $row->adresse; ?></td>  
                      <td><?php echo $row->nom_ville; ?></td>
                     
@@ -389,11 +391,11 @@ nav {
 
 
 
-     </table>
+     </table></center>
 
          <form method="post" action="">
           
-           <input   style="width:200px;margin-right: 40px; " type="submit" name="insert_nouveau" value="Nouveau" class="btn btn-primary" /> 
+           <input   style="position: relative;width:200px;left:65px;" type="submit" name="insert_nouveau" value="Nouveau" class="btn btn-secondary" /> 
 
             </form>
     

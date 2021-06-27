@@ -25,7 +25,7 @@
        
     
 
-
+ 
    }
      .btn{
          margin-top: 40px;
@@ -262,7 +262,7 @@ body, html {
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" style="background-color: black">
    <div class="container-fluid">
     <button id="sidebarCollapse" class="btn navbar-btn" >
         <i class="fas fa-lg fa-bars"></i>
@@ -286,9 +286,9 @@ body, html {
     </div>
 </nav>
 <div class="wrapper fixed-left">
-    <nav id="sidebar">
-      <div class="sidebar-header">
-      <h4><i class="fas fa-user"></i>Admin</h4>
+    <nav id="sidebar" style="background-color: #708090">
+      <div class="sidebar-header" style="background-color: #708090">
+      <h4><i class="fas fa-user" ></i>Admin</h4>
       </div>
 
       <ul class="list-unstyled components">
@@ -327,11 +327,15 @@ body, html {
       </ul>
     </nav>
 
-<div class="container">
+<div class="container" style="background-color: none">
 
-<h1 align="center" style="color:red">ADMIN</h1>
+     <center><div style="width: 500px;height: 100px;position: relative;top:250px;background-color: none">
 
-    <br/><h3 align="center" style="font-weight: bold">Bonjours  <?php echo $_SESSION['nom'] ?></h3> 
+    
+
+    <br/><h1 align="center" style="font-weight: bold">Bonjours  <?php echo $_SESSION['nom'] ?></h1> 
+
+    </div></center>
 
    </div>
 </footer>

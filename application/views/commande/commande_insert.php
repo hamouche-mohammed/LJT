@@ -144,7 +144,7 @@ i { margin: 0 7px; }
 .wrapper {
   display: flex;
   width: 100%;
-  height:100%;
+  height:auto;
   align-items: stretch;
 }.wrapper {
   display: flex;
@@ -320,7 +320,7 @@ body, html {
   </head>
   <body>
   
-  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light blue fixed-top" style="background-color: black">
    <div class="container-fluid">
     <button id="sidebarCollapse" class="btn navbar-btn" >
         <i class="fas fa-lg fa-bars"></i>
@@ -343,9 +343,9 @@ body, html {
       </ul>
     </div>
 </nav>
-<div class="wrapper fixed-left" style="position: fixed;">
-    <nav id="sidebar">
-      <div class="sidebar-header">
+<div class="wrapper fixed-left" >
+    <nav id="sidebar" style="background-color: #708090">
+      <div class="sidebar-header" style="background-color: #708090">
       <h4><i class="fas fa-user"></i>Admin</h4>
       </div>
 
@@ -384,7 +384,7 @@ body, html {
        
       </ul>
     </nav>
-  </div>
+ 
 
 <div class="container">
 
@@ -404,7 +404,7 @@ body, html {
 </div>
 
 
-      <div style="width: 500px;position: relative;top: 5%;margin-left: 220px;"> 
+      <div style="width: 500px;position: relative;top: 5%;margin-left: 290px;">
 
         <form method="post" action="<?php echo base_url()?>index.php/commande/commandeinsert">  
            <div class="form-group">  
@@ -423,7 +423,7 @@ body, html {
                 <span class="text-danger"><?php echo form_error("total_commande"); ?></span>  
            </div>  
            <div class="form-group">  
-                <input type="submit" name="insert" value="Inserer" class="btn btn-primary" />  
+                <input type="submit" name="insert" value="Inserer" class="btn btn-secondary" />  
            </div>       
            
       </form>  

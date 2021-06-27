@@ -33,7 +33,7 @@
   <body background="">
 
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" style="background-color: black">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
