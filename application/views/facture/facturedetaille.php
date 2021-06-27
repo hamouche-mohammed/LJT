@@ -13,7 +13,7 @@
         <link href="<?php echo base_url ();?>assets/css/pop-up.css" rel="stylesheet">
     
     
-
+ 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -75,41 +75,53 @@
       
     <table border="2" class="table table-striped table-hover">
 
-      <tr> <th>N° ligne</th><th>produit</th><th>QTE</th><th>reference facture</th>
+      <tr> <th>N° ligne</th><th>produit</th><th>QTE</th><th>reference facture</th><th>Prix vente</th>
 
           <?php  
+
+               if($ligne_facture){
                 foreach( $ligne_facture as $row)  
                 {  
            ?>  
                 <tr>  
-                     <td><?php echo $row->id ; }?></td>  
-                     <td><?php                       
+                     <td><?php echo $row->id ; ?></td>  
+                    <td><?php                       
 
 
-                                                     $x=$row->ref_produit; 
+                                                     $x = $row->ref_produit; 
+
+                                                  
+
                                                      $this->db->select('*');
                                                      $this->db->from('produits');
                                                      $this->db->where('reference',$x);
                                                      $query=$this->db->get();
                                                      $query->result(); 
-                                                     foreach( $query->result() as $row){
-                                                      echo $row->nom_produit;
+
+                                                     foreach( $query->result() as $r){
+                                                      echo $r->nom_produit;
                                                      } 
 
-                                                     ?>
+                                                     ?> 
                                                        
 
 
                                                      </td>
-                     <td><?php  foreach( $ligne_facture as $row){  
-                      echo $row->qté_produit ?></td>
-                      <td><?php echo $row->ref_facture ; ?></td> 
+                     <td><?php  echo $row->qté_produit ?></td>
+                      <td><?php echo $row->ref_facture ; ?></td>
+                      <td><?php echo $row->prix_vente ; ?></td> 
                      
                 </tr>  
 
 
                 <?php  
                }
+           }else{ ?><tr>  
+                     <td  colspan="5" align="center">No data found</td></tr>
+                     <?php
+
+
+                     }
            ?>
 
 

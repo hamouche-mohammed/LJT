@@ -122,9 +122,18 @@ public function get_etat_facture()
 
         }
 
-         public function get_factureByRef($ref)
+         public function get_factureByRef()
         {
                 //$query = $this->db->get('ligne_facture',array('ref_facture' => $id));
+
+
+               $query = $this->db->get('facture');
+
+               foreach( $query->result() as $row)  
+                {
+
+                  $ref=$row->ref_facture;
+                }
 
 
                 $this->db->select('*');
@@ -132,8 +141,6 @@ public function get_etat_facture()
                 $this->db->where('ref_facture',$ref);
                 $query=$this->db->get();
                 return $query->result();
-
-
 
 
         }

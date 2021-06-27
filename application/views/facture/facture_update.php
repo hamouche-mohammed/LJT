@@ -3,6 +3,7 @@
    <title>Insert data stock</title>  
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+   <link href="<?php echo base_url ();?>assets/css/bootstrap.min.css" rel="stylesheet">
  </head>  
  <body>  
 
@@ -33,7 +34,7 @@
              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('fournisseur/fournisseurData'); ?>">Founisseur</a></li>
             </ul>
-             < <ul class="nav navbar-nav navbar-right">
+              <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo site_url('produit/produitData'); ?>">produits</a></li>
             </ul>
              <ul class="nav navbar-nav navbar-right">
@@ -84,6 +85,7 @@
          <div class="form-group">
         <label for="mode_paiement">mode paiement</label><br />
         <select class="form-control"  name="mode_paiement" type="text">
+          <option  value="<?php  echo $row->mode_paiement ;?>"><?php echo $row->mode_paiement ;?></option>
         <?php foreach($mode_paiement as $fr) : ?>
             <option  value="<?php  echo $fr->mode;?>"><?php echo $fr->mode;?></option>
             <?php endforeach;?>
@@ -97,6 +99,7 @@
            <div class="form-group">
         <label for="etat">etat facture</label><br />
         <select class="form-control"  name="etat" type="text">
+          <option  value="<?php  echo $row->etat;?>"><?php echo $row->etat;?></option>
         <?php foreach($etat_facture as $fr) : ?>
             <option  value="<?php  echo $fr->etat;?>"><?php echo $fr->etat;?></option>
             <?php endforeach;?>
@@ -111,6 +114,9 @@
             <div class="form-group">
         <label for="ref_client">client</label><br />
         <select class="form-control"  name="ref_client" type="text">
+          <?php foreach($clients as $fr){ if ($fr->ref_client==$row->ref_client){ ?>
+            <option  value="<?php  echo $fr->ref_client;?>"><?php echo $fr->nom;?></option>
+            <?php }}?>
         <?php foreach($clients as $fr) : ?>
             <option  value="<?php  echo $fr->ref_client;?>"><?php echo $fr->nom;?></option>
             <?php endforeach;?>
@@ -120,7 +126,9 @@
         <div class="form-group">
         
         <label for="numero_commande">référence commande</label><br />
+
         <select class="form-control"  name="numero_commande" type="text">
+           <option  value="<?php  echo $row->numero_commande;?>"><?php echo $row->numero_commande;?></option>
         <?php foreach($commande as $fr) : ?>
             <option  value="<?php  echo $fr->numero_commande;?>"><?php echo $fr->numero_commande;?></option>
             <?php endforeach;?>
@@ -129,8 +137,9 @@
 
 
         
-           <div class="form-group">  
-                <input type="submit" name="insert" value="modifier" class="btn btn-primary" />  
+           <div class="form-group">
+                 <input type="hidden" name="hidden_id" value="<?php echo $row->ref_facture; ?>" />  
+                <input type="submit" name="update" value="modifier" class="btn btn-primary" />  
            </div>       
                   
            <?php       

@@ -1,37 +1,18 @@
-<?php
+<?php  
 
- $str = "FACT000";
+foreach($facturex as $row)  
+                { $x = $row->ref_facture; } 
 
 
-$query = $this->db->get('facture');
-
-if($query->result()){
-
-foreach ($query->result() as $row) {
-
-  $id_four = $row->ref_facture;
-  $last_four = explode("000", $id_four);
- /* print_r (explode("r",$id_four));*/
- /* echo  $last_four[1];*/
-  $x=$last_four[1]+1;
-
-  $id1 = $str.$last_four[1];
-
-  $id = $str.$x;
-
-               }
-
-}else{
-  
-    $id = "FACT0001";
-}
-
-      ?>
+?>
 <html>  
  <head>  
+
+ 
    <title>Insert data stock</title>  
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+   <link href="<?php echo base_url ();?>assets/css/bootstrap.min.css" rel="stylesheet">
  </head>  
  <body>  
 
@@ -77,7 +58,7 @@ foreach ($query->result() as $row) {
 
 <div style="width: 500px;position: absolute; left: 30%;top: 2%"> 
       <br /><br /><br />  
-      <h3 align="center">Nouveau facture </h3><br />  
+      <h3 align="center" style="margin-right: 40px">Facture N°<?php  echo $x;  ?> </h3><br />  
 
        </div>  
 
@@ -85,21 +66,34 @@ foreach ($query->result() as $row) {
 
           <form method="post" action="<?php echo base_url()?>index.php/facture/factureedite">
 
+         
+
           <div style="position: absolute;left: 10%;top:30%;background-color: red;">  
            
           
            <div style="width: 300px;position: absolute;">
+
+            <?php  
+            
+                foreach($facturex as $row)  
+                {  
+           ?> 
+
            <div class="form-group">  
                 <label>référence </label>  
-                <input type="text" disabled="disabled" name="ref_facture"  class="form-control" placeholder="<?php  echo $id ?>" />  
+                <input type="text" disabled="disabled" name="ref_facture"  class="form-control" value="<?php  echo $row->ref_facture;  ?>" />  
                 <span class="text-danger"><?php echo form_error("ref_facture"); ?></span>  
            </div>  
+
+
+           
            <div class="form-group">  
                 <label>date</label>  
-                <input type="date" name="date_facture"  class="form-control" />  
+                <input type="date" name="date_facture"  class="form-control" value="<?php  echo $row->date_facture; ?>"/>  
                 <span class="text-danger"><?php echo form_error("date_facture"); ?></span>  
-           </div>  
-           
+           </div> 
+
+          
 
            </div>
            
@@ -111,6 +105,9 @@ foreach ($query->result() as $row) {
             <div class="form-group">
         <label for="ref_client">client</label><br />
         <select class="form-control"  name="ref_client" type="text">
+          <?php foreach($clients as $fr){ if ($fr->ref_client==$row->ref_client){ ?>
+            <option  value="<?php  echo $fr->ref_client;?>"><?php echo $fr->nom;?></option>
+            <?php }}?>
         <?php foreach($clients as $fr) : ?>
             <option  value="<?php  echo $fr->ref_client;?>"><?php echo $fr->nom;?></option>
             <?php endforeach;?>
@@ -120,12 +117,15 @@ foreach ($query->result() as $row) {
         <div class="form-group">
         
         <label for="numero_commande">référence commande</label><br />
+
         <select class="form-control"  name="numero_commande" type="text">
+           <option  value="<?php  echo $row->numero_commande;?>"><?php echo $row->numero_commande;?></option>
         <?php foreach($commande as $fr) : ?>
             <option  value="<?php  echo $fr->numero_commande;?>"><?php echo $fr->numero_commande;?></option>
             <?php endforeach;?>
         </select>
         </div>
+
 
         </div>
 
@@ -138,6 +138,7 @@ foreach ($query->result() as $row) {
          <div class="form-group">
         <label for="mode_paiement">mode paiement</label><br />
         <select class="form-control"  name="mode_paiement" type="text">
+          <option  value="<?php  echo $row->mode_paiement ;?>"><?php echo $row->mode_paiement ;?></option>
         <?php foreach($mode_paiement as $fr) : ?>
             <option  value="<?php  echo $fr->mode;?>"><?php echo $fr->mode;?></option>
             <?php endforeach;?>
@@ -146,27 +147,34 @@ foreach ($query->result() as $row) {
 
 
 
-      
 
-           <div class="form-group">
+      
+ <div class="form-group">
         <label for="etat">etat facture</label><br />
         <select class="form-control"  name="etat" type="text">
+          <option  value="<?php  echo $row->etat;?>"><?php echo $row->etat;?></option>
         <?php foreach($etat_facture as $fr) : ?>
             <option  value="<?php  echo $fr->etat;?>"><?php echo $fr->etat;?></option>
             <?php endforeach;?>
         </select>
-
         </div>
+
+
       </div>
+
+       <h3 align="center" style="margin-right: 40px"> Ligne facture </h3><br /> 
+
 
          <div style="width: 300px;position: absolute;top: 200px">
 
 
+
+
          <div class="form-group">
         <label for="ref_produit">produit</label><br />
-        <select class="form-control"  name="ref_produit" type="text">
+        <select class="form-control"  name="ref_produit" type="text" required>
 
-        <option  value="#">Choisissez un produit</option>
+        <option value="">Choisissez un produit</option>
         <?php foreach($produits as $fr) : ?>
 
             <option  value="<?php  echo $fr->reference;?>"><?php echo $fr->nom_produit;?></option>
@@ -177,7 +185,7 @@ foreach ($query->result() as $row) {
 
         <div class="form-group">   
                 <label>Prix vente</label>  
-                <input type="number" step="0.01" name="prix_vente"  class="form-control" />  
+                <input  type="number"   step="0.01" name="prix_vente"  class="form-control" />  
                 <span class="text-danger"><?php echo form_error("prix_vente"); ?></span>  
            </div> 
 
@@ -196,14 +204,23 @@ foreach ($query->result() as $row) {
 
         <div class="form-group">  
                 <label>montant</label>  
-                <input type="number"  name="montant_facture"  class="form-control" />  
+                <input type="number"  name="montant_facture"  class="form-control" "/>  
                 <span class="text-danger"><?php echo form_error("montant_facture"); ?></span>  
            </div> 
 
 
-           <div class="form-group" >  
-                <input type="submit" name="insert" value="Inserer ligne facture " class="btn btn-primary" />  
-           </div>      
+           <div class="form-group" > 
+                <input type="hidden" name="hidden_id" value="<?php echo $row->ref_facture; ?>" />  
+                <input type="submit" name="insert_ligne_facture" value="Inserer ligne facture " class="btn btn-primary" />
+                <input type="submit" name="ajouter_ligne_facture" value="Ajouter une ligne" class="btn btn-primary" />  
+           </div>   
+
+            <?php       
+                }  
+            
+            
+           ?> 
+              
 
 
 

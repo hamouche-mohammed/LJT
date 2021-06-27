@@ -51,6 +51,12 @@ class Stock extends CI_CONTROLLER{
 
                 if($this->input->post("update"))  
                 {  
+                   $data = array(  
+                     
+                     "num_article"          =>$this->input->post("num_article"),
+                     "quantité_stock"          =>$this->input->post("quantité_stock")  
+                );
+                   
                      $this->stock1->update_stock($data, $this->input->post("hidden_id"));  
                      redirect(base_url() . "index.php/stock/stockData");   
                 } 

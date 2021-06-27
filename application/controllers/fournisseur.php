@@ -71,6 +71,16 @@ public function getidx(){
 
                 if($this->input->post("update"))  
                 {  
+
+
+                      $data = array(  
+                     
+                     "nom_fournisseur"     =>$this->input->post("nom_fournisseur"),
+                     "email"     =>$this->input->post("email"),
+                     "adresse_fournisseur" =>$this->input->post("adresse_fournisseur"),
+                     "tel_fournisseur"     =>$this->input->post("tel_fournisseur")  
+                     );  
+                      
                      $this->fournisseur1->update_fournisseur($data, $this->input->post("hidden_id"));  
                      redirect(base_url() . "index.php/fournisseur/fournisseurData");   
                 } 

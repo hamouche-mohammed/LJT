@@ -49,6 +49,12 @@ public function commandeData(){
 
                 if($this->input->post("update"))  
                 {  
+
+                   $data = array(  
+                    
+                     "date_commande"          =>$this->input->post("date_commande"),
+                     "total_commande"          =>$this->input->post("total_commande")  
+                ); 
                      $this->commande1->update_commande($data, $this->input->post("hidden_id"));  
                      redirect(base_url() . "index.php/commande/commandeData");   
                 } 

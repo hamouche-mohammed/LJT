@@ -162,43 +162,7 @@ foreach ($query->result() as $row) {
          <div style="width: 300px;position: absolute;top: 200px">
 
 
-      <!--   <div class="form-group">
-        <label for="ref_produit">produit</label><br />
-        <select class="form-control"  name="ref_produit" type="text">
 
-        <option  value="#">Choisissez un produit</option>
-        <?php foreach($produits as $fr) : ?>
-
-            <option  value="<?php  echo $fr->reference;?>"><?php echo $fr->nom_produit;?></option>
-            <?php endforeach;?>
-        </select>
-        </div>
-
-
-        <div class="form-group">   
-                <label>Prix vente</label>  
-                <input type="number" step="0.01" name="prix_vente"  class="form-control" />  
-                <span class="text-danger"><?php echo form_error("prix_vente"); ?></span>  
-           </div> 
-
-
-        <div class="form-group">
-
-
-                <label>quantité </label>  
-                <input type="number"  name="qté_produit"  class="form-control"  />  
-                <span class="text-danger"><?php echo form_error("qté_produit"); ?></span>  
-      
-
-    
-        </div>  
-
-
-        <div class="form-group">  
-                <label>montant</label>  
-                <input type="number"  name="montant_facture"  class="form-control" />  
-                <span class="text-danger"><?php echo form_error("montant_facture"); ?></span>  
-           </div> -->
 
 
            <div class="form-group" style="position: absolute;left:430px;" >  

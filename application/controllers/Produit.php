@@ -73,13 +73,14 @@ public function getidx(){
                
 
                 $data['categories']=$this->produit1->get_categories();
-                $this->load->view("produit/produit_insert",$data);
-
+               
               }else{
 
                  
                 //true  
                 $this->load->model("produit1");  
+
+                
                 $data = array(  
                      "reference"     =>$this->produit1->getid(),  
                      "nom_produit"     =>$this->input->post("nom_produit"),
@@ -98,6 +99,19 @@ public function getidx(){
 
                 if($this->input->post("update"))  
                 {  
+
+                   $data = array(  
+                    
+                     "nom_produit"     =>$this->input->post("nom_produit"),
+                     "prix"     =>$this->input->post("prix"),
+                     "quantite"               =>$this->input->post("quantite"),
+                     "created_date"     =>$this->input->post("created_date"),
+                     "category_id" =>$this->input->post("category_id"),
+                    
+                     "ref_fournisseur"     =>$this->input->post("ref_fournisseur")
+                    
+                       
+                ); 
                      $this->produit1->update_produit($data, $this->input->post("hidden_id"));  
                      redirect(base_url() . "index.php/produit/produitData");   
                 } 
@@ -111,7 +125,8 @@ public function getidx(){
                   
 
             }  
-          
+           $this->load->view("produit/produit_insert",$data);
+
 
 	
 	       // $this->load->view("produit/produit_insert");
@@ -148,7 +163,6 @@ public function getidx(){
 	
 
            public function produitupdate(){  
-
 
  
 

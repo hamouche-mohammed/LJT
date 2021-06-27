@@ -48,7 +48,7 @@ public function getidx(){
 
           
          
-
+ 
  
            $this->load->library('form_validation');  
              
@@ -58,10 +58,7 @@ public function getidx(){
            $this->form_validation->set_rules("telephone", "telephone", 'required'); 
             $this->form_validation->set_rules("adresse", "adresse", 'required'); 
             $this->form_validation->set_rules("nom_ville", "nom_ville", 'required'); 
-            $this->form_validation->set_rules("status", "status", 'required'); 
-            $this->form_validation->set_rules("gender", "gender", 'required'); 
-            
-
+           
 
            if($this->form_validation->run())  
            {  
@@ -75,13 +72,24 @@ public function getidx(){
                      "telephone"     =>$this->input->post("telephone"),
                      "adresse" =>$this->input->post("adresse"),
                     "nom_ville" =>$this->input->post("nom_ville"),
-                     "status"     =>$this->input->post("status"),
-                     "gender"     =>$this->input->post("gender")
+                     
                        
                 );   
 
                 if($this->input->post("update"))  
                 {  
+
+                  $data = array(  
+                     
+                     "nom"     =>$this->input->post("nom"),
+                     "prenom"     =>$this->input->post("prenom"),
+                     "mail"               =>$this->input->post("mail"),
+                     "telephone"     =>$this->input->post("telephone"),
+                     "adresse" =>$this->input->post("adresse"),
+                    "nom_ville" =>$this->input->post("nom_ville"),
+                     
+                       
+                );  
                      $this->client1->update_client($data, $this->input->post("hidden_id"));  
                      redirect(base_url() . "index.php/client/clientData");   
                 } 
