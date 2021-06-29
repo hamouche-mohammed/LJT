@@ -37,7 +37,7 @@ class client1 extends CI_Model {
            //DELETE FROM tbl_user WHERE id = $id  
          }  
 
-///////////////////////////////////////
+
         function fetch_single_data($id)  
           {  
            $this->db->where("ref_client", $id);  

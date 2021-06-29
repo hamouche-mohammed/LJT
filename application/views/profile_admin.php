@@ -288,7 +288,7 @@ body, html {
 <div class="wrapper fixed-left">
     <nav id="sidebar" style="background-color: #708090">
       <div class="sidebar-header" style="background-color: #708090">
-      <h4><i class="fas fa-user" ></i>Admin</h4>
+      <h4><i class="fas fa-user" ></i><?php echo $_SESSION['nom'] ?></h4>
       </div>
 
       <ul class="list-unstyled components">
@@ -319,23 +319,31 @@ body, html {
         <li>
         <a href="<?php echo site_url('fournisseur/fournisseurData'); ?>" ><img src="https://img.icons8.com/ios/50/000000/supplier.png" style=" height: 25px;width: 30px;margin: auto background-color:white;">&nbsp;Fournisseurs</a>
         </li>
+
+        <?php   $y=$_SESSION['udser_id'];
+                $this->db->select('type_user');
+                $this->db->from('user_form');
+
+                $this->db->where('udser_id',$y);
+                $query=$this->db->get();
+
+                foreach ($query->result() as $row) {
+                 $x=$row->type_user;
+                }
+                
+                if( $x=="admin"){ ?>
       
         <li>
-        <a  href="<?php echo site_url('commande/commandeData'); ?>"><img src="https://img.icons8.com/small/50/000000/command.png" style=" height: 25px;width: 25px;margin: auto background-color:white;">&nbsp;Commandes</a>
+        <a  href="<?php echo site_url('utilisateur/utilisateurData'); ?>"><img src="https://img.icons8.com/small/50/000000/command.png" style=" height: 25px;width: 25px;margin: auto background-color:white;">&nbsp;Utilisateur</a>
         </li>
+      <?php } ?>
        
       </ul>
     </nav>
 
-<div class="container" style="background-color: none">
-
-     <center><div style="width: 500px;height: 100px;position: relative;top:250px;background-color: none">
+    <div class="container" style="background-color: none">
 
     
-
-    <br/><h1 align="center" style="font-weight: bold">Bonjours  <?php echo $_SESSION['nom'] ?></h1> 
-
-    </div></center>
 
    </div>
 </footer>

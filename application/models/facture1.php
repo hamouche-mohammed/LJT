@@ -1,7 +1,7 @@
 <?php
 class facture1 extends CI_Model {
 
-        public $ref_facture;
+        public $ref_facture; 
         public $date_facture;
         public $montant_facture;
        

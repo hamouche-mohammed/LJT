@@ -1,6 +1,6 @@
  <!doctype html>
 <html lang="en">
-  <head>
+  <head> 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="<?php base_url(); ?>assets/css/bootstrap.css">
 <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Page d'accueil</title>
+    <title>Page utilisateur</title>
     <link rel="stylesheet" type="text/css" href="<?php base_url(); ?>assets/css/bootstrap.css">
     <style type="text/css">
  body{
@@ -361,7 +361,7 @@ nav {
  <hr>
  <div class="row">
         <div class="text-right">
-          <div class="col-lg-12"><center><h1> Liste Produits</h1></center></div></div>
+          <div class="col-lg-12"><center><h1> Liste utilisateur</h1></center></div></div>
           
 </div>
 
@@ -376,26 +376,26 @@ nav {
  
     <table border="2" class="table" style="width: auto;align-self: center;">
 
-      <tr style="background-color:#708090;color: white"> <th>référence</th> <th>nom</th><th>prix</th><th>quantite</th><th>date de creation</th><th>catégorie</th><th>ref_fournisseur</th><th>modifier</th></tr>
+      <tr style="background-color:#708090;color: white"> <th>Id</th><th>Nom</th><th>Prenom</th><th>Cni</th><th>Téléphone</th><th>Email</th><th>Type utilisateur</th><th>Réinitialiser le mot de passe</th><th>modifier</th></tr>
 
 
           <?php  
-                foreach( $produits as $row)  
+                foreach( $user_form as $row)  
                 {  
            ?>  
                 <tr>  
-                     <td><?php echo $row->reference; ?></td>  
-                     <td><?php echo $row->nom_produit; ?></td>
-                     <td><?php echo $row->prix."DH"; ?></td>
-                      <td><?php echo $row->quantite; ?></td> 
-                      <td><?php echo $row->created_date; ?></td> 
-                     <td><?php echo $row->category_id; ?></td>  
-                     <td><?php echo $row->ref_fournisseur; ?></td>
+                     <td><?php echo $row->udser_id; ?></td>  
+                     <td><?php echo $row->nom; ?></td>
+                     <td><?php echo $row->prenom; ?></td>
+                      <td><?php echo $row->cni; ?></td> 
+                      <td><?php echo $row->tel; ?></td> 
+                     <td><?php echo $row->email; ?></td> 
+                     <td><?php echo $row->type_user; ?></td>
 
                     <!-- <td><a href="#" class="delete_data" id="<?php echo $row->id; ?>">Delete</a></td>  -->
                        
-                     
-                     <td><a href="<?php echo base_url(); ?>index.php/produit/produitupdate/<?php echo $row->reference; ?>">modifier</a></td>  
+                  <td><a href="<?php echo base_url(); ?>index.php/utilisateur/utilisateurupdate2/<?php echo $row->udser_id; ?>">réinitialiser</td>
+                  <td><a href="<?php echo base_url(); ?>index.php/utilisateur/utilisateurupdate/<?php echo $row->udser_id; ?>">modifier</a></td>  
                      
                 </tr>  
 

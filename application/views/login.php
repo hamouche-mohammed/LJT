@@ -93,10 +93,7 @@
         <div class="text-center">
              <button class="btn btn-primary" name="login" style="float: left;width: 100px;">Connexion</button>
         </div>
-        <div>
         
-              <a href="<?php echo site_url('authentification/mpor'); ?>"  style="float: right;">Récuprérer mot de passe</a>
-        </div>
         
         </form>
 

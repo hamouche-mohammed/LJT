@@ -325,9 +325,24 @@ nav {
         <a href="<?php echo site_url('fournisseur/fournisseurData'); ?>" ><img src="https://img.icons8.com/ios/50/000000/supplier.png" style=" height: 25px;width: 30px;margin: auto background-color:white;">&nbsp;Fournisseurs</a>
         </li>
       
+        <?php   $y=$_SESSION['udser_id'];
+                $this->db->select('type_user');
+                $this->db->from('user_form');
+
+                $this->db->where('udser_id',$y);
+                $query=$this->db->get();
+
+                foreach ($query->result() as $row) {
+                 $x=$row->type_user;
+                }
+                
+                if( $x=="admin"){ ?>
+      
         <li>
-        <a  href="<?php echo site_url('commande/commandeData'); ?>"><img src="https://img.icons8.com/small/50/000000/command.png" style=" height: 25px;width: 25px;margin: auto background-color:white;">&nbsp;Commandes</a>
+        <a  href="<?php echo site_url('utilisateur/utilisateurData'); ?>"><img src="https://img.icons8.com/small/50/000000/command.png" style=" height: 25px;width: 25px;margin: auto background-color:white;">&nbsp;Utilisateur</a>
         </li>
+      <?php } ?>
+       
         <li>
         <a  href="#" ></a>
         </li>

@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -253,10 +253,7 @@ body, html {
     -ms-transform: rotate(-44deg);
     transform: rotate(-44deg);
 }
-nav {
-    height: auto;
-    overflow: hidden;
-}
+
 
 
 
@@ -288,7 +285,7 @@ nav {
     </div>
 </nav>
 <div class="wrapper fixed-left" >
-    <nav id="sidebar" style="background-color: #708090" >
+    <nav id="sidebar" style="background-color: #708090">
       <div class="sidebar-header" style="background-color: #708090">
       <h4><i class="fas fa-user"></i>Admin</h4>
       </div>
@@ -340,15 +337,11 @@ nav {
         </li>
       <?php } ?>
        
-        <li>
-        <a  href="#" ></a>
-        </li>
-       
       </ul>
     </nav>
   
 
-<div class="container" >
+<div class="container">
 
 
 
@@ -357,65 +350,64 @@ nav {
           <div class="col-lg-12"><center><h1> Liste Clients</h1></center></div></div>
           <br /> 
 </div>    
-
+ 
  <hr>
  <div class="row">
         <div class="text-right">
-          <div class="col-lg-12"><center><h1> Liste Produits</h1></center></div></div>
+          <div class="col-lg-12"><center><h1>Entrer nouveau utilisateur</h1></center></div></div>
           
 </div>
 
-   
- 
-   
 
-
-<div class="table" style="position: relative;top: 5%"><center>
-
-
- 
-    <table border="2" class="table" style="width: auto;align-self: center;">
-
-      <tr style="background-color:#708090;color: white"> <th>référence</th> <th>nom</th><th>prix</th><th>quantite</th><th>date de creation</th><th>catégorie</th><th>ref_fournisseur</th><th>modifier</th></tr>
-
-
-          <?php  
-                foreach( $produits as $row)  
-                {  
-           ?>  
-                <tr>  
-                     <td><?php echo $row->reference; ?></td>  
-                     <td><?php echo $row->nom_produit; ?></td>
-                     <td><?php echo $row->prix."DH"; ?></td>
-                      <td><?php echo $row->quantite; ?></td> 
-                      <td><?php echo $row->created_date; ?></td> 
-                     <td><?php echo $row->category_id; ?></td>  
-                     <td><?php echo $row->ref_fournisseur; ?></td>
-
-                    <!-- <td><a href="#" class="delete_data" id="<?php echo $row->id; ?>">Delete</a></td>  -->
-                       
-                     
-                     <td><a href="<?php echo base_url(); ?>index.php/produit/produitupdate/<?php echo $row->reference; ?>">modifier</a></td>  
-                     
-                </tr>  
-
-
-                <?php  
-               }
-           ?>
-
-
-
-
-     </table></center>
-
-         <form method="post" action="">
-          
-           <input   style="position: relative;width:200px;left:135px;  " type="submit" name="insert_nouveau" value="Nouveau" class="btn btn-secondary" /> 
-
-            </form>
+       <div style="width: 500px;position: relative;top: 5%;margin-left: 300px;">
+       
     
-     </div>
+       <form method="post" action="<?php echo base_url()?>index.php/utilisateur/utilisateurinsert">  
+           
+        
+                   <div class="form-group">
+          <label for="nom">NOM :</label>
+          <input class="form-control" type="text" name="nom" id="nom">
+        </div>
+
+        <div class="form-group">
+          <label for="prenom" >PRENOM :</label>
+          <input class="form-control"  type="text" name="prenom" id="prenom">
+        </div>
+
+        <div class="form-group">
+          <label for="CNI" >CNI :</label>
+          <input class="form-control" type="text" name="cni" id="cni">
+        </div>
+
+        <div class="form-group">
+          <label for="tel" >TEL :</label>
+          <input class="form-control" type="number" name="tel" id="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="email" >EAMIL :</label>
+          <input class="form-control" type="email" name="email" id="email">
+        </div>
+
+        
+             <div class="form-group">
+        
+        <label for="type_user">Type utilisateur</label><br />
+        <select class="form-control"  name="type_user" required>
+        <?php foreach($type_user as $fr) : ?>
+            <option  value="<?php  echo $fr->type;?>"><?php echo $fr->type;?></option>
+            <?php endforeach;?>
+        </select>
+        </div>
+
+            
+           <div class="form-group">  
+                <input type="submit" name="insert" value="Inserer" class="btn btn-secondary" />  
+           </div>       
+      </form>
+
+
     </div>
    </div>
 </footer>
@@ -456,8 +448,3 @@ nav {
 
 </body>
 </html>
-
-
-
-
-   

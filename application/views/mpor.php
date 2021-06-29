@@ -62,11 +62,7 @@
 
     <form action="" method="POST" style="">
 
-        <div class="form-group">
-          <label for="email" >Email :</label>
-          <input class="form-control" type="email" name="email" id="email">
-        </div>
-
+        
         <div class="form-group">
           <label for="password" >Nouveau mot de passe :</label>
           <input class="form-control" type="password" name="password" id="password">

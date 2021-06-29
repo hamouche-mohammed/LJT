@@ -17,7 +17,7 @@ class authentification extends CI_CONTROLLER{
         if($this->form_validation->run() == TRUE){
 
         $email=$_POST['email'];
-		$password=md5($_POST['password']);
+		    $password=md5($_POST['password']);
 
 		$this->db->select('*');
 		$this->db->from('user_form');
@@ -32,17 +32,20 @@ class authentification extends CI_CONTROLLER{
 			$_SESSION['user_loged']=TRUE;
 			$_SESSION['nom']=$user_form->nom;
 			$_SESSION['email']=$user_form->email;
+      $_SESSION['udser_id']=$user_form->udser_id; 
 
-             if($user_form->type_user == 'admin'){
+              if($user_form->password == md5(1234)){
 
-                redirect("profile_con/profile_admin", "refresh");
 
-             }else{
+                redirect("authentification/MPOR", "refresh");
 
-		      	redirect("profile_con/profile", "refresh");
 
-		          }
+              }else{
 
+                      redirect("profile_con/profile_admin", "refresh");
+               }
+
+            
 		}else{
 			$this->session->set_flashdata("error", "email ou password incorect");
 			redirect("authentification/login", "refresh");
@@ -202,7 +205,7 @@ class authentification extends CI_CONTROLLER{
 
               if(isset($_POST['mpor'])){
 
-              	 $this->form_validation->set_rules('email', 'email', 'required');
+              	
                  $this->form_validation->set_rules('password', 'password', 'required');
                  $this->form_validation->set_rules('password2', 'password2', 'required|matches[password]');
 
@@ -210,7 +213,7 @@ class authentification extends CI_CONTROLLER{
 
              if($this->form_validation->run() == TRUE){
 		   
-		       $email = $this->input->post('email');
+		       $email = $_SESSION['email'];
 
 		       $this->db->select('*');
 		       $this->db->from('user_form');
@@ -234,6 +237,7 @@ class authentification extends CI_CONTROLLER{
 
 
                    $this->session->set_flashdata("success", "mot de passe changé");
+                   redirect("profile_con/profile_admin", "refresh");
             
                      }else{
                       $this->session->set_flashdata("error", "email n'éxiste pas");
